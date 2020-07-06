@@ -19,7 +19,7 @@ This project uses MVVM-C architecture.
 * `PhotoCell` was intended to be a `UICollectionViewCell` and content a image view for the photo.
 * `UserCell` and `AlbumCell` are different classes although they look similar, with the intention to style the UI differently for albums or users.
 * `UsersViewController` `AlbumsViewController` and pretty similar, the idea, again, was to have different view controller for styling the ui in a different way for each one.
-* I view model for each `Album`, `Photo` and `User` should be passed through the views instead of the raw models. 
+* A view model for each `Album`, `Photo` and `User` should be passed through the views instead of the raw models. 
 * View models protocols and coordinator protocols were created with the intention to make the app testable and each module to not depend on concrete implementations.
 * I would have liked to add a way to cancel the task from the apiClient.
 * The models were created with help of [Quicktype](https://quicktype.io)
