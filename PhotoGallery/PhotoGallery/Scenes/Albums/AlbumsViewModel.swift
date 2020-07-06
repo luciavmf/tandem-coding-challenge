@@ -31,11 +31,14 @@ final class AlbumsViewModel: AlbumsViewModelProtocol {
     private let apiClient: APIClientProtocol
     private let userId: Int
 
+    private let coordinator: AlbumsCoordinatorProtocol
+
     // MARK: Init
 
-    init(apiClient: APIClientProtocol, userId: Int) {
+    init(apiClient: APIClientProtocol, coordinator: AlbumsCoordinatorProtocol, userId: Int) {
         self.apiClient = apiClient
         self.userId = userId
+        self.coordinator = coordinator
     }
 
     // MARK: AlbumsViewModelProtocol
@@ -62,13 +65,14 @@ final class AlbumsViewModel: AlbumsViewModelProtocol {
         guard index >= 0,
             index < albums.count
             else {
-                fatalError("Tryed to load an invalid user index at: \(index)")
+                fatalError("Tried to load an invalid album index at: \(index)")
         }
 
         return albums[index]
     }
 
     func didSelectModel(at index: Int) {
-
+        let album = model(at: index)
+        coordinator.navigateToPhotos(album: album)
     }
 }

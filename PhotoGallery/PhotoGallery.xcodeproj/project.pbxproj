@@ -32,6 +32,11 @@
 		85BCBE8224B3871C00FCD163 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8124B3871C00FCD163 /* Coordinator.swift */; };
 		85BCBE8424B387E200FCD163 /* AlbumsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8324B387E200FCD163 /* AlbumsCoordinator.swift */; };
 		85BCBE8624B38A0A00FCD163 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8524B38A0A00FCD163 /* AppCoordinator.swift */; };
+		85BCBE8924B38C1D00FCD163 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8824B38C1D00FCD163 /* PhotosViewController.swift */; };
+		85BCBE8B24B38C5300FCD163 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8A24B38C5300FCD163 /* PhotosViewModel.swift */; };
+		85BCBE8D24B38CD000FCD163 /* PhotosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8C24B38CD000FCD163 /* PhotosRequest.swift */; };
+		85BCBE8F24B38D1800FCD163 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8E24B38D1800FCD163 /* Photo.swift */; };
+		85BCBE9224B38DDB00FCD163 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE9124B38DDB00FCD163 /* PhotoCell.swift */; };
 		962E18C82CB3980F52DD2453 /* Pods_PhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3C2FDEFE138C28C456C72 /* Pods_PhotoGallery.framework */; };
 		C8F47DB4303A2A27D69EF0B7 /* Pods_PhotoGalleryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B8B492ED9DF5F2A4A91841 /* Pods_PhotoGalleryTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +85,11 @@
 		85BCBE8124B3871C00FCD163 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		85BCBE8324B387E200FCD163 /* AlbumsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCoordinator.swift; sourceTree = "<group>"; };
 		85BCBE8524B38A0A00FCD163 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		85BCBE8824B38C1D00FCD163 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		85BCBE8A24B38C5300FCD163 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		85BCBE8C24B38CD000FCD163 /* PhotosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRequest.swift; sourceTree = "<group>"; };
+		85BCBE8E24B38D1800FCD163 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		85BCBE9124B38DDB00FCD163 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		873080B9B6E5ECD9B1B26148 /* Pods-PhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.release.xcconfig"; path = "Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		E0D0F4C89FB42F84243B7A26 /* Pods-PhotoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.debug.xcconfig"; path = "Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +169,7 @@
 		859625F824B377BC001692E0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				85BCBE8724B38C0700FCD163 /* Photos */,
 				85BCBE6D24B383E500FCD163 /* Albums */,
 				859625F924B377C3001692E0 /* Users */,
 			);
@@ -214,6 +225,7 @@
 			children = (
 				85BCBE5E24B37D0300FCD163 /* User.swift */,
 				85BCBE7524B384A900FCD163 /* Album.swift */,
+				85BCBE8E24B38D1800FCD163 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 			children = (
 				85BCBE6B24B380AA00FCD163 /* UsersRequest.swift */,
 				85BCBE7324B3848300FCD163 /* AlbumsRequest.swift */,
+				85BCBE8C24B38CD000FCD163 /* PhotosRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -252,6 +265,24 @@
 				85BCBE7D24B385AF00FCD163 /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85BCBE8724B38C0700FCD163 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				85BCBE9024B38DCB00FCD163 /* Cell */,
+				85BCBE8824B38C1D00FCD163 /* PhotosViewController.swift */,
+				85BCBE8A24B38C5300FCD163 /* PhotosViewModel.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		85BCBE9024B38DCB00FCD163 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				85BCBE9124B38DDB00FCD163 /* PhotoCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9AF0A432B029632A66009B07 /* Pods */ = {
@@ -439,12 +470,17 @@
 				85BCBE6124B37E8D00FCD163 /* APIClient.swift in Sources */,
 				859625FD24B37802001692E0 /* UsersViewModel.swift in Sources */,
 				85BCBE7924B3857900FCD163 /* AlbumCell.swift in Sources */,
+				85BCBE8F24B38D1800FCD163 /* Photo.swift in Sources */,
 				85BCBE8424B387E200FCD163 /* AlbumsCoordinator.swift in Sources */,
 				85BCBE6C24B380AA00FCD163 /* UsersRequest.swift in Sources */,
 				85BCBE8024B3870C00FCD163 /* UsersCoordinator.swift in Sources */,
+				85BCBE9224B38DDB00FCD163 /* PhotoCell.swift in Sources */,
+				85BCBE8B24B38C5300FCD163 /* PhotosViewModel.swift in Sources */,
 				85BCBE5F24B37D0300FCD163 /* User.swift in Sources */,
 				859625FB24B377D7001692E0 /* UsersViewController.swift in Sources */,
 				85BCBE7E24B385AF00FCD163 /* UITableViewCell+Extensions.swift in Sources */,
+				85BCBE8D24B38CD000FCD163 /* PhotosRequest.swift in Sources */,
+				85BCBE8924B38C1D00FCD163 /* PhotosViewController.swift in Sources */,
 				85BCBE7624B384A900FCD163 /* Album.swift in Sources */,
 				85BCBE5B24B37A9100FCD163 /* UserCell.swift in Sources */,
 				85BCBE8224B3871C00FCD163 /* Coordinator.swift in Sources */,

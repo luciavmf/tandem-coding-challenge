@@ -9,6 +9,7 @@
 import UIKit
 
 protocol AlbumsCoordinatorProtocol {
+    func navigateToPhotos(album: Album)
 }
 
 final class AlbumsCoordinator: Coordinator {
@@ -26,12 +27,20 @@ final class AlbumsCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = AlbumsViewModel(apiClient: apiClient, userId: user.id ?? 0)
+        let viewModel = AlbumsViewModel(
+            apiClient: apiClient,
+            coordinator: self,
+            userId: user.id ?? 0
+        )
         let viewController = AlbumsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 extension AlbumsCoordinator: AlbumsCoordinatorProtocol {
-
+    func navigateToPhotos(album: Album) {
+        let viewModel = PhotosViewModel(apiClient: apiClient, albumId: album.id)
+        let viewController = PhotosViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
