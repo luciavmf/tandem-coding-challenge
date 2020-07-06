@@ -12,12 +12,19 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var apiClient: APIClient?
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
 
-        let viewModel = UsersViewModel()
+        guard let baseURL = URL(string: "https://jsonplaceholder.typicode.com") else {
+            fatalError("Could not create te baseURL for the api client")
+        }
+
+        apiClient = APIClient(baseURL: baseURL)
+
+        let viewModel = UsersViewModel(apiClient: apiClient!)
         let viewController = UsersViewController(viewModel: viewModel)
 
         // Use a UIHostingController as window root view controller.

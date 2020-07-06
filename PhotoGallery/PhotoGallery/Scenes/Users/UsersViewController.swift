@@ -27,6 +27,8 @@ final class UsersViewController: UIViewController {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
+
+        viewModel.viewDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -80,5 +82,11 @@ extension UsersViewController: UITableViewDataSource {
         let model = viewModel.model(at: indexPath.row)
         cell.configure(with: model)
         return cell
+    }
+}
+
+extension UsersViewController: UsersViewDelegate {
+    func didLoadData() {
+        tableView.reloadData()
     }
 }
