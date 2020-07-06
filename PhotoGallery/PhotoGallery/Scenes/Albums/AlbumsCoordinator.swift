@@ -9,7 +9,6 @@
 import UIKit
 
 protocol AlbumsCoordinatorProtocol {
-
 }
 
 final class AlbumsCoordinator: Coordinator {
@@ -27,11 +26,12 @@ final class AlbumsCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = AlbumsViewModel(apiClient: apiClient)
+        let viewModel = AlbumsViewModel(apiClient: apiClient, userId: user.id ?? 0)
         let viewController = AlbumsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
+
 extension AlbumsCoordinator: AlbumsCoordinatorProtocol {
 
 }

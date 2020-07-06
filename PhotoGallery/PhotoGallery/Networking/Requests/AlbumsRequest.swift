@@ -18,4 +18,6 @@ struct AlbumsRequest: APIRequest {
     var httpMethod: RequestMethod {
         return .get
     }
+
+    let userId: Int
 }

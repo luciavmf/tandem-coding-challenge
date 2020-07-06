@@ -29,17 +29,19 @@ final class AlbumsViewModel: AlbumsViewModelProtocol {
     weak var viewDelegate: AlbumsViewDelegate?
 
     private let apiClient: APIClientProtocol
+    private let userId: Int
 
     // MARK: Init
 
-    init(apiClient: APIClientProtocol) {
+    init(apiClient: APIClientProtocol, userId: Int) {
         self.apiClient = apiClient
+        self.userId = userId
     }
 
     // MARK: AlbumsViewModelProtocol
 
     func viewDidLoad() {
-        let request = AlbumsRequest()
+        let request = AlbumsRequest(userId: userId)
         apiClient.send(request) { [weak self] result in
             guard let self = self else { return }
             switch result {
