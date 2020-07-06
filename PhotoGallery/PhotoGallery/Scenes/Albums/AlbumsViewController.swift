@@ -97,4 +97,3 @@ extension AlbumsViewController: AlbumsViewDelegate {
         // TODO: Implement error view
     }
 }
-

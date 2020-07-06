@@ -29,11 +29,13 @@ final class UsersViewModel: UsersViewModelProtocol {
     weak var viewDelegate: UsersViewDelegate?
 
     private let apiClient: APIClientProtocol
+    private let coordinator: UsersCoordinatorProtocol
 
     // MARK: Init
 
-    init(apiClient: APIClientProtocol) {
+    init(apiClient: APIClientProtocol, coordinator: UsersCoordinatorProtocol) {
         self.apiClient = apiClient
+        self.coordinator = coordinator
     }
 
     // MARK: UsersViewModelProtocol
@@ -67,6 +69,7 @@ final class UsersViewModel: UsersViewModelProtocol {
     }
 
     func didSelectModel(at index: Int) {
-
+        let user = model(at: index)
+        coordinator.navigateToAlbums(with: user)
     }
 }

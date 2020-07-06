@@ -28,6 +28,10 @@
 		85BCBE7624B384A900FCD163 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE7524B384A900FCD163 /* Album.swift */; };
 		85BCBE7924B3857900FCD163 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE7824B3857900FCD163 /* AlbumCell.swift */; };
 		85BCBE7E24B385AF00FCD163 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE7D24B385AF00FCD163 /* UITableViewCell+Extensions.swift */; };
+		85BCBE8024B3870C00FCD163 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE7F24B3870C00FCD163 /* UsersCoordinator.swift */; };
+		85BCBE8224B3871C00FCD163 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8124B3871C00FCD163 /* Coordinator.swift */; };
+		85BCBE8424B387E200FCD163 /* AlbumsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8324B387E200FCD163 /* AlbumsCoordinator.swift */; };
+		85BCBE8624B38A0A00FCD163 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCBE8524B38A0A00FCD163 /* AppCoordinator.swift */; };
 		962E18C82CB3980F52DD2453 /* Pods_PhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3C2FDEFE138C28C456C72 /* Pods_PhotoGallery.framework */; };
 		C8F47DB4303A2A27D69EF0B7 /* Pods_PhotoGalleryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B8B492ED9DF5F2A4A91841 /* Pods_PhotoGalleryTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +76,10 @@
 		85BCBE7524B384A900FCD163 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		85BCBE7824B3857900FCD163 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		85BCBE7D24B385AF00FCD163 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Extensions.swift"; path = "../../../../../Documents/UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		85BCBE7F24B3870C00FCD163 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
+		85BCBE8124B3871C00FCD163 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		85BCBE8324B387E200FCD163 /* AlbumsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCoordinator.swift; sourceTree = "<group>"; };
+		85BCBE8524B38A0A00FCD163 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		873080B9B6E5ECD9B1B26148 /* Pods-PhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.release.xcconfig"; path = "Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		E0D0F4C89FB42F84243B7A26 /* Pods-PhotoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.debug.xcconfig"; path = "Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +171,7 @@
 				85BCBE5924B37A8200FCD163 /* Cell */,
 				859625FA24B377D7001692E0 /* UsersViewController.swift */,
 				859625FC24B37802001692E0 /* UsersViewModel.swift */,
+				85BCBE7F24B3870C00FCD163 /* UsersCoordinator.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -172,6 +181,8 @@
 			children = (
 				859625D424B37654001692E0 /* AppDelegate.swift */,
 				859625D624B37654001692E0 /* SceneDelegate.swift */,
+				85BCBE8124B3871C00FCD163 /* Coordinator.swift */,
+				85BCBE8524B38A0A00FCD163 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 				85BCBE7724B3856C00FCD163 /* Cell */,
 				85BCBE6F24B3840E00FCD163 /* AlbumsViewController.swift */,
 				85BCBE7124B3841A00FCD163 /* AlbumsViewModel.swift */,
+				85BCBE8324B387E200FCD163 /* AlbumsCoordinator.swift */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -421,17 +433,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85BCBE8624B38A0A00FCD163 /* AppCoordinator.swift in Sources */,
 				859625D524B37654001692E0 /* AppDelegate.swift in Sources */,
 				85BCBE6824B37F2300FCD163 /* HTTPParameter.swift in Sources */,
 				85BCBE6124B37E8D00FCD163 /* APIClient.swift in Sources */,
 				859625FD24B37802001692E0 /* UsersViewModel.swift in Sources */,
 				85BCBE7924B3857900FCD163 /* AlbumCell.swift in Sources */,
+				85BCBE8424B387E200FCD163 /* AlbumsCoordinator.swift in Sources */,
 				85BCBE6C24B380AA00FCD163 /* UsersRequest.swift in Sources */,
+				85BCBE8024B3870C00FCD163 /* UsersCoordinator.swift in Sources */,
 				85BCBE5F24B37D0300FCD163 /* User.swift in Sources */,
 				859625FB24B377D7001692E0 /* UsersViewController.swift in Sources */,
 				85BCBE7E24B385AF00FCD163 /* UITableViewCell+Extensions.swift in Sources */,
 				85BCBE7624B384A900FCD163 /* Album.swift in Sources */,
 				85BCBE5B24B37A9100FCD163 /* UserCell.swift in Sources */,
+				85BCBE8224B3871C00FCD163 /* Coordinator.swift in Sources */,
 				85BCBE7424B3848300FCD163 /* AlbumsRequest.swift in Sources */,
 				85BCBE6324B37EA500FCD163 /* APIRequest.swift in Sources */,
 				859625D724B37654001692E0 /* SceneDelegate.swift in Sources */,
