@@ -1,5 +1,5 @@
 //
-//  UsersViewModel.swift
+//  AlbumsViewModel.swift
 //  PhotoGallery
 //
 //  Created by Lucía Medina Fretes on 06/07/2020.
@@ -8,25 +8,25 @@
 
 import Foundation
 
-protocol UsersViewModelProtocol: AnyObject {
-    var viewDelegate: UsersViewDelegate? { get set }
+protocol AlbumsViewModelProtocol: AnyObject {
+    var viewDelegate: AlbumsViewDelegate? { get set }
     func viewDidLoad()
     func numberOfRows() -> Int
-    func model(at index: Int) -> User
+    func model(at index: Int) -> Album
     func didSelectModel(at index: Int)
 }
 
-protocol UsersViewDelegate: AnyObject {
+protocol AlbumsViewDelegate: AnyObject {
     func didLoadData()
     func didError()
 }
 
-final class UsersViewModel: UsersViewModelProtocol {
+final class AlbumsViewModel: AlbumsViewModelProtocol {
 
     // MARK: Properties
 
-    private var users = [User]()
-    weak var viewDelegate: UsersViewDelegate?
+    private var albums = [Album]()
+    weak var viewDelegate: AlbumsViewDelegate?
 
     private let apiClient: APIClientProtocol
 
@@ -36,15 +36,15 @@ final class UsersViewModel: UsersViewModelProtocol {
         self.apiClient = apiClient
     }
 
-    // MARK: UsersViewModelProtocol
+    // MARK: AlbumsViewModelProtocol
 
     func viewDidLoad() {
-        let request = UsersRequest()
+        let request = AlbumsRequest()
         apiClient.send(request) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let users):
-                self.users = users
+            case .success(let albums):
+                self.albums = albums
                 self.viewDelegate?.didLoadData()
             case .failure:
                 self.viewDelegate?.didError()
@@ -53,17 +53,17 @@ final class UsersViewModel: UsersViewModelProtocol {
     }
 
     func numberOfRows() -> Int {
-        return users.count
+        return albums.count
     }
 
-    func model(at index: Int) -> User {
+    func model(at index: Int) -> Album {
         guard index >= 0,
-            index < users.count
+            index < albums.count
             else {
                 fatalError("Tryed to load an invalid user index at: \(index)")
         }
 
-        return users[index]
+        return albums[index]
     }
 
     func didSelectModel(at index: Int) {

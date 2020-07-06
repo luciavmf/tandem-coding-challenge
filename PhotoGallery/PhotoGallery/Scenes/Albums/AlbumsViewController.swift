@@ -1,5 +1,5 @@
 //
-//  UsersViewController.swift
+//  AlbumsViewController.swift
 //  PhotoGallery
 //
 //  Created by Lucía Medina Fretes on 06/07/2020.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class UsersViewController: UIViewController {
+final class AlbumsViewController: UIViewController {
 
     // MARK: Properties
 
-    private let viewModel: UsersViewModelProtocol
+    private let viewModel: AlbumsViewModelProtocol
 
     // MARK: Views
     private lazy var tableView: UITableView = {
@@ -23,7 +23,7 @@ final class UsersViewController: UIViewController {
 
     // MARK: Init
 
-    init(viewModel: UsersViewModelProtocol) {
+    init(viewModel: AlbumsViewModelProtocol) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -50,7 +50,7 @@ final class UsersViewController: UIViewController {
     private func setUpView() {
         view.backgroundColor = .white
 
-        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseIdentifier)
+        tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -66,20 +66,20 @@ final class UsersViewController: UIViewController {
     }
 }
 
-extension UsersViewController: UITableViewDelegate {
+extension AlbumsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectModel(at: indexPath.row)
     }
 }
 
-extension UsersViewController: UITableViewDataSource {
+extension AlbumsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseIdentifier) as? UserCell else {
-            fatalError("Could not find registered cell \(String(describing: UserCell.self))")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.reuseIdentifier) as? AlbumCell else {
+            fatalError("Could not find registered cell \(String(describing: AlbumCell.self))")
         }
 
         let model = viewModel.model(at: indexPath.row)
@@ -88,7 +88,7 @@ extension UsersViewController: UITableViewDataSource {
     }
 }
 
-extension UsersViewController: UsersViewDelegate {
+extension AlbumsViewController: AlbumsViewDelegate {
     func didLoadData() {
         tableView.reloadData()
     }
@@ -97,3 +97,4 @@ extension UsersViewController: UsersViewDelegate {
         // TODO: Implement error view
     }
 }
+

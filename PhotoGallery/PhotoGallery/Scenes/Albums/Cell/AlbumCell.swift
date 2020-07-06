@@ -1,5 +1,5 @@
 //
-//  UserCell.swift
+//  AlbumCell.swift
 //  PhotoGallery
 //
 //  Created by Lucía Medina Fretes on 06/07/2020.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class UserCell: UITableViewCell {
+final class AlbumCell: UITableViewCell {
 
     // MARK: Configuration
 
-    func configure(with user: User) {
-        textLabel?.text = user.name
+    func configure(with album: Album) {
+        textLabel?.text = album.title
     }
 
     override func prepareForReuse() {
