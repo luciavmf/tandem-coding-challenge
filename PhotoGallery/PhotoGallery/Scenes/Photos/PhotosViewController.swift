@@ -43,6 +43,7 @@ final class PhotosViewController: UIViewController {
         viewModel.viewDidLoad()
         setUpView()
         setUpConstraints()
+        setUpNavigationItems()
     }
 
     // MARK: Set Up
@@ -62,6 +63,17 @@ final class PhotosViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: layourGuide.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: layourGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: layourGuide.bottomAnchor).isActive = true
+    }
+
+    private func setUpNavigationItems() {
+        let leftButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(didTapClose))
+        navigationItem.leftBarButtonItem = leftButton
+    }
+}
+
+private extension PhotosViewController {
+    @objc func didTapClose() {
+        viewModel.didTapClose()
     }
 }
 

@@ -33,14 +33,17 @@ final class AlbumsCoordinator: Coordinator {
             userId: user.id ?? 0
         )
         let viewController = AlbumsViewController(viewModel: viewModel)
+
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 extension AlbumsCoordinator: AlbumsCoordinatorProtocol {
     func navigateToPhotos(album: Album) {
-        let viewModel = PhotosViewModel(apiClient: apiClient, albumId: album.id)
-        let viewController = PhotosViewController(viewModel: viewModel)
-        navigationController.pushViewController(viewController, animated: true)
+
+        let coordinator = PhotosCoordinator(apiClient: apiClient,
+                                            albumId: album.id,
+                                            navigationController: navigationController)
+        coordinator.start()
     }
 }

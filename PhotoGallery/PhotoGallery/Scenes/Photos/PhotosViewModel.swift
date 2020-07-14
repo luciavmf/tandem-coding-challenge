@@ -13,6 +13,7 @@ protocol PhotosViewModelProtocol: AnyObject {
     func viewDidLoad()
     func numberOfRows() -> Int
     func model(at index: Int) -> Photo
+    func didTapClose()
 }
 
 protocol PhotosViewDelegate: AnyObject {
@@ -30,11 +31,14 @@ final class PhotosViewModel: PhotosViewModelProtocol {
     private let apiClient: APIClientProtocol
     private let albumId: Int
 
+    private let coordinator: PhotosCoordinatorProtocol
+
     // MARK: Init
 
-    init(apiClient: APIClientProtocol, albumId: Int) {
+    init(apiClient: APIClientProtocol, albumId: Int, coordinator: PhotosCoordinatorProtocol) {
         self.apiClient = apiClient
         self.albumId = albumId
+        self.coordinator = coordinator
     }
 
     // MARK: AlbumsViewModelProtocol
@@ -65,5 +69,9 @@ final class PhotosViewModel: PhotosViewModelProtocol {
         }
 
         return photos[index]
+    }
+
+    func didTapClose() {
+        coordinator.finalize()
     }
 }
